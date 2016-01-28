@@ -1,0 +1,1 @@
+cat /etc/services | grep -v '^#' | sed 's/\//|/' | awk '{printf $1"|"$2"|";$1="";$2="";$3="";print $0}' | sed 's/\|  /\|/' | grep -i ssh | column -s"|" -t
